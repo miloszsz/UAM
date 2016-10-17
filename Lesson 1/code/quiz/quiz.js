@@ -1,4 +1,4 @@
-describe('Odgadniej wartoúci zmiennych', function () {
+describe('Odgadniej warto≈õci zmiennych', function () {
 	it('Pytanie 1', function () {
 		var a;
 
