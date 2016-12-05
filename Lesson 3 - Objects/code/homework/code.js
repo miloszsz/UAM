@@ -23,38 +23,55 @@
 
     // newCategoryName: String
     global.UAM.addCategory = function (newCategoryName) {
-        // function should return new category object
+        var newCategory = { categoryName: newCategoryName, books: [] };
+        UAM.library.push(newCategory);
+        return newCategory;
     };
 
     // categoryObject: Object
     global.UAM.removeCategory = function (categoryObject) {
-        // !!!
+        var index = global.UAM.library.indexOf(categoryObject);
+        if (index >= 0) {
+            global.UAM.library.splice(index, 1);
+        }
     };
 
     // categoryObject: Object
     // title: String
     // count: Number 
     global.UAM.addBookToCategory = function(categoryObject, title, count) {
-        // !!!
-        // function should return new book object
+        var newBook = { title: title, count: count };
+        categoryObject.books.push(newBook);
+        return newBook;
     };
 
     // categoryObject: Object
     // bookObject: Object
     global.UAM.removeBookFromCategory = function(categoryObject, bookObject) {
-        // !!!
+        var index = categoryObject.books.indexOf(bookObject);
+        if (index >= 0) {
+            categoryObject.books.splice(index, 1);
+        }
     };
 
     // categoryName: String
     global.UAM.getCategoryByName = function(categoryName) {
-        // !!!
-        // function should return category object
+        for (var i = 0 ; i < global.UAM.library.length ; i++) {
+            if ( global.UAM.library[i].categoryName === categoryName) {
+                return global.UAM.library[i];
+            }
+        }
     };
 
     // title: String
     global.UAM.getBookByTitle = function(title) {
-        // !!!
-        // function should return book object
+        for (var i = 0 ; i < global.UAM.library.length ; i++) {
+            for (var j = 0 ; j < global.UAM.library[i].books.length ; j++) {
+                if (global.UAM.library[i].books[j].title === title) {
+                    return global.UAM.library[i].books[j];
+                }
+            }
+        }
     };
 
     // bookObject: Object
