@@ -1,0 +1,9 @@
+{
+    "data": [
+        { "name": "Learn javascript", "isDone": true },
+        { "name": "Learn angular", "isDone": false },
+        { "name": "Learn css", "isDone": false },
+        { "name": "Learn html", "isDone": false },
+        { "name": "Learn rxjs", "isDone": false }
+    ]
+}

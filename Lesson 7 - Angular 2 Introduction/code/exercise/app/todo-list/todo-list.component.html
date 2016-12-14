@@ -1,0 +1,8 @@
+<input type="text" [(ngModel)]="newTodoTaskName" />
+<button (click)="addNewTask()">Add task</button>
+<ul>
+    <li *ngFor="let todoTaskInsideFor of todos">
+        <my-todo [todoTask]="todoTaskInsideFor" 
+            (removeTodoTask)="removeChild($event)"></my-todo>
+    </li>
+</ul>
