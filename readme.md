@@ -1,5 +1,5 @@
-#Nowoczone Aplikacje Internetowe
+#Nowoczesne Aplikacje Internetowe
 
 ###Prowadzący
-* Andrzej Matłosz - andrzej.matlosz@gft.com
+* Andrzej Matłosz - andrzej.matlosz@gmail.com
 * Tadeusz Makuch - tadeusz.makuch@gft.com
