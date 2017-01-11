@@ -10,13 +10,19 @@ export class TodoService {
     constructor(private http: Http) {
     }
 
-    getTodos () : Observable<TodoTask[]> {
+    getTodos (priority: string) : Observable<TodoTask[]> {
         return this.http.get('app/todo-list/todoList.json')
-            .map(this.extractData);
+            .map((res) => this.extractData(res, priority));
     }
 
-    private extractData(res: Response) {
+    private extractData(res: Response, priority: string) {
         let body = res.json();
-        return body.data || { };
+        if (priority) {
+            return body.data.filter((todo) => {
+                return todo.priority === priority;
+            }) || { };
+        } else {
+            return body.data || { };
+        }
   }
 }

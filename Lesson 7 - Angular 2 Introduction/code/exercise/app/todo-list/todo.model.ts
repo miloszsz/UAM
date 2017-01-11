@@ -1,4 +1,5 @@
 export interface TodoTask {
     name: string,
-    isDone: boolean
+    isDone: boolean,
+    priority: string
 }
