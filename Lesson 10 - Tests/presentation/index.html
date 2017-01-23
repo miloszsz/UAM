@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Nowoczesne Aplikacje Internetowe [UAM]</title>
+		<meta name="author" content="Tadeusz Makuch">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/night.css" id="theme">
+        <style type="text/css">
+            h1, h2, h3, h4, h5, h6 {
+                font-family: Calibri !important;
+                font-weight: 600 !important;
+            }        
+            .column-2 {
+                display: inline-block !important;
+                width: calc(40% - 50px) !important;
+            }
+            .column-2 > :first-child {
+                list-style-type: none !important;
+                font-size: 1.7em !important;
+            }
+			.clear-img {
+				background:none !important;
+				border:none !important;
+				box-shadow: none !important;
+			}
+        </style>
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>Nowoczesne Aplikacje Internetowe</h1>
+                    <h3>Testowanie</h3>
+					<p><b>Tadeusz Makuch</b><br />tadeusz.makuch@gft.com</p>
+                    <p><b>Andrzej Matłosz</b><br />andrzej.matlosz@gmail.com</p>
+					<p>Materiały: <a href="https://github.com/tmakuch/UAM">https://github.com/tmakuch/UAM</a></p>
+				</section>
+
+				<section class="stack">
+					<section>
+						<h2>toBe || not.toBe</h2>
+						<h3>Typy testowania</h3>
+					</section>
+					<section>
+						<h3>Testy jednostkowe</h3>
+						<ul>
+							<li>Testowanie kod - nie wychodząc poza klasę</li>
+							<li>Często służy to testowania warunków krańcowych</li>
+							<li>Powinno być równopranym zadaniem dewelopera oprócz pisania</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Testy integracyjne</h3>
+						<ul>
+							<li>Testowanie niskopoziomowe zależności - wykorzystanie klas pomiędzy sobą</li>
+							<li>Sprawdzamy czy to co napisaliśmy działa poprawnie jako trybik w aplikacji</li>
+							<li>Te testy dotyczą jeszcze kodu</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Testy interfejsu</h3>
+						<ul>
+							<li>Testowanie interfejsu</li>
+							<li>Wykorzystujemy przeglądarkę, a nie edytor kodu</li>
+							<li>Na tym etapie przydaje się dydykowana rola testera</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Testy systemowe (e2e)</h3>
+						<ul>
+							<li>Testowanie całego przekroju aplikacji</li>
+							<li>Wymaga przygotowania zarówno klienta jak i serwera</li>
+						</ul>
+					</section>
+				</section>
+
+				<section class="stack">
+					<section>
+						<h3>Test Driven Development</h3>
+						<ul>
+							<li>Metodyka tworzenia oprogramowania</li>
+							<li>Pierw test, dopiero potem kod</li>
+							<li>Powinno gwarantować 100% pokrycia</li>
+						</ul>
+					</section>
+					<section>
+						<img src="./img/tdd.jpg" style="height: 100vh; width: initial;"/>
+					</section>
+				</section>
+
+				<section class="stack">
+					<section>
+						<img src="./img/jasmine.png" style="background: none; border: none;"/>
+					</section>
+					<section>
+						<ul>
+							<li>Biblioteka pozwalająca pisać testy i ich warunki</li>
+							<li>Nie zapewnia wykonania testów - jedynie je opisuje</li>
+							<li>Szeroko wykorzystywana zarówno do testów jednostkowych i interfejsu</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Podstawy</h3>
+						<ul>
+							<li>describe</li>
+							<li>it</li>
+							<li>expect</li>
+							<li>toBe</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Użycie podstaw biblioteki</h3>
+						<pre><code>
+describe('Basic laws of code', () => {
+    it('should be valid', () => {
+        expect(true).toBe(true);
+    });
+});
+						</code></pre>
+					</section>
+					<section>
+						<h3>Porównywanie</h3>
+						<ul>
+							<li>toBe</li>
+							<li>toEqual</li>
+							<li>not</li>
+							<li>toBeTruthy, toBeFalsy</li>
+							<li>toBeDefined, toBeNull</li>
+							<li>toContain</li>
+							<li>toBeLessThan, toBeGreaterThan</li>
+							<li>toBeCloseTo</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Użycie porównań</h3>
+						<ul style="width:1000px">
+							<li><pre><code>expect('test').toBe('test')</code></pre></li>
+							<li><pre><code>expect({ test: true }).toEqual({ test:true })</code></pre></li>
+							<li><pre><code>expect({ test: true }).not.toBe({ test:true })</code></pre></li>
+							<li><pre><code>expect(0).toBeFalsy()</code></pre></li>
+							<li><pre><code>expect(null).toBeNull()</code></pre></li>
+							<li><pre><code>expect([1,2,3,4,5]).toContain(1)</code></pre></li>
+							<li><pre><code>expect(0).toBeLessThan(1)</code></pre></li>
+							<li><pre><code>expect(3.14).toBeCloseTo(3, 0)</code></pre></li>
+						</ul>
+					</section>
+					<section>
+						<h3>Łapanie wyjątków</h3>
+						<p>toThrow, toThrowError</p>
+						<pre><code>
+expect(() => {
+    throw new Error('my error message');
+}).toThrowError('my error message')
+						</code></pre>
+					</section>
+					<section>
+						<h3>Zagnieżdżanie</h3>
+						<p id="nesting-text">
+							describe(...
+						</p>
+						<script type="text/javascript">
+							const el = document.querySelector('#nesting-text');
+							el.appendChild(getNest(el.textContent, 10));
+							function getNest(text, depth) {
+								var elem = document.createElement('div');
+								elem.textContent = text;
+								elem.style.fontSize = '0.8em';
+								elem.style.lineHeight = '1.1em';
+								if (depth > 0) {
+									elem.appendChild(getNest(text, depth-1));
+								}
+								return elem;
+							}
+						</script>
+						<br/>
+						<p>beforeEach, afterEach</p>
+					</section>
+					<section>
+						<h3>Użycie zagnieżdżania</h3>
+						<pre><code>
+describe('user component', () => {
+    var component;
+    beforeEach(() => {
+        //initialize component
+    });
+    
+    describe('authentication', () => {
+        //...
+    });
+});</code></pre>
+					</section>
+					<section>
+						<h3>Szpiedzy</h3>
+						<ul>
+							<li>spyOn, createSpy, createSpyObj</li>
+							<li>toHaveBeenCalled, toHaveBeenCalledWith</li>
+							<li>and.returnValue, and.callFake</li>
+						</ul>
+					</section>
+					<section>
+						<h3>Szpiedzy w akcji</h3>
+						<pre><code>
+spyOn(myObj, 'myMethod')
+myObj.myMethod = jasmine.createSpy('Bond drinking')
+myObj = jasmine.createSpyObj('Bond', ['myMethod, 'myOtherMethod'])
+
+expect(myObj.myMethod).toHaveBeenCalled()
+expect(myObj.myMethod).toHaveBeenCalledWith('arg 1', 2)
+</code></pre><pre><code>
+spyOn(myObj, 'myMethod').and.callThrough()
+
+jasmine.createSpy('myMethod').and.callFake((arg) => { return !!arg;})
+
+myObj.mytMethod.and.returnValue(44)</code></pre>
+					</section>
+					<section>
+						<h3>Testy asynchroniczne</h3>
+						<pre><code>
+it('should fail before jasmine timeouts', (done) => {
+    setTimeout(() => {
+        expect(true).toBe(false);
+        done();
+    }, 1000);
+})</code></pre>
+					</section>
+				</section>
+				<section class="stack">
+					<section>
+						<h3>Jak testować</h3>
+						<p>Najpopularniejszy runner testów JS - <a href="https://karma-runner.github.io">Karma</a></p>
+						<p>Lub do nauki lokalnie - <a href="https://github.com/jasmine/jasmine/releases/latest">https://github.com/jasmine/jasmine/releases/latest</a></p>
+					</section>
+					<section>
+						<h3>Zadanie</h3>
+						<ul>
+							<li>Napisać prosty konstruktor obiektu kalkulatora
+								<ul>
+									<li>add(a,b)</li>
+									<li>substract(a,b)</li>
+									<li>multiply(a,b)</li>
+									<li>divide(a,b)</li>
+									<li>Dzielenie przez zero powinno zwrócić wyjątek!</li>
+								</ul>
+							</li>
+							<li>Napisać testy do napisanego konstruktora
+								<ul>
+									<li>Tworzenie obiektu kalkulatora</li>
+									<li>Dobre i złe scenariusze dla metod</li>
+									<li>Także łapanie wyjątków</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+				</section>
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script>
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				width: 1366,
+				height: 968,
+
+				theme: 'night', // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+		</script>
+	</body>
+</html>
